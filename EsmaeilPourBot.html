@@ -2,461 +2,261 @@
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>ربات اسماعیل پور</title>
-    <!-- Bootstrap 5 RTL -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.rtl.min.css">
-    <!-- Font Awesome 6 (ممکن است برخی آیکون‌ها باقی بمانند ولی در منوی اصلی حذف می‌کنیم) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Vazir font -->
-    <link href="https://cdn.fontcdn.ir/Font/Persian/Vazir.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
     <style>
-        * { font-family: 'Vazir', sans-serif; }
+        * { font-family: system-ui, -apple-system, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body {
             background: linear-gradient(145deg, #002053 0%, #e6e9f0 100%);
             min-height: 100vh;
-            padding: 20px;
+            padding: 15px;
         }
         .glass-card {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(8px);
-            border-radius: 32px;
-            box-shadow: 0 20px 35px rgba(3, 0, 78, 0.363), 0 2px 8px rgba(255, 255, 255, 0.432);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            padding: 28px;
-            margin-bottom: 25px;
-            animation: fadeIn 0.3s;
+            border-radius: 28px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
         .btn-modern {
             background: #2b3a67;
             color: white;
             border: none;
             border-radius: 60px;
-            padding: 14px 20px;
+            padding: 12px 16px;
             font-weight: 600;
-            transition: all 0.2s;
-            box-shadow: 0 6px 14px rgba(0, 16, 61, 0.336);
             width: 100%;
-            margin-bottom: 12px;
-            font-size: 1.05rem;
+            margin-bottom: 10px;
         }
-        .btn-modern:hover {
-            background: #1f2a4f;
-            transform: translateY(-2px);
-            box-shadow: 0 12px 20px rgba(43, 58, 103, 0.35);
-            color: white;
-        }
+        .btn-modern:hover { background: #1f2a4f; color: white; }
         .btn-outline-modern {
             background: transparent;
             border: 2px solid #2b3a67;
             color: #2b3a67;
             border-radius: 60px;
-            padding: 12px 20px;
+            padding: 12px 16px;
             font-weight: 600;
-            transition: 0.2s;
             width: 100%;
             margin-bottom: 8px;
         }
-        .btn-outline-modern:hover {
-            background: #2b3a67;
-            color: white;
-        }
-        .price-table {
-            background: white;
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 12px 24px rgba(0,0,0,0.05);
-        }
-        .price-table th {
-            background: #2b3a67;
-            color: white;
-            font-weight: 500;
-            padding: 16px;
-        }
-        .price-table td {
-            padding: 12px;
-            border-bottom: 1px solid #eef2f6;
-        }
-        .edit-icon {
-            cursor: pointer;
-            color: #6c757d;
-            margin-right: 8px;
-            font-size: 0.9rem;
-        }
-        .edit-icon:hover { color: #2b3a67; }
-        .modal-content {
-            border-radius: 32px;
-            background: rgba(255,255,255,0.98);
-            border: none;
-        }
-        .admin-section {
-            border-right: 5px solid #2b3a67;
-            background: #f8f9ff;
-            border-radius: 20px;
-            padding: 22px;
-        }
-        .hidden { display: none !important; }
-        .cart-item {
-            background: #f0f3fa;
-            border-radius: 20px;
-            padding: 18px;
-            margin-bottom: 15px;
-            border: 1px solid #d9e0eb;
-        }
+        .btn-outline-modern:hover { background: #2b3a67; color: white; }
+        .price-table { background: white; border-radius: 24px; overflow: hidden; width: 100%; }
+        .price-table th { background: #2b3a67; color: white; padding: 12px; }
+        .price-table td { padding: 10px; border-bottom: 1px solid #eef2f6; text-align: center; }
         .back-btn {
-            margin-top: 25px;
+            margin-top: 20px;
             width: 100%;
             background: #e2e6ee;
             color: #2b3a67;
             border: none;
             border-radius: 60px;
-            padding: 14px;
+            padding: 12px;
             font-weight: 600;
         }
-        .back-btn:hover {
-            background: #d0d6e2;
-        }
-        /* استایل عمودی برای دکمه‌های انتخاب */
-        .vertical-options {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin: 15px 0;
-        }
-        .vertical-options .btn {
-            width: 100%;
-            text-align: center;
-            border-radius: 50px !important;
-        }
-        .nav-tabs .nav-link.active {
-            background: #2b3a67;
-            color: white;
-            border: none;
-        }
-        .nav-tabs .nav-link {
-            color: #2b3a67;
-            font-weight: 500;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        .vertical-options { display: flex; flex-direction: column; gap: 10px; margin: 15px 0; }
+        .cart-item { background: #f0f3fa; border-radius: 20px; padding: 15px; margin-bottom: 12px; }
+        .hidden { display: none !important; }
+        .loading { text-align: center; padding: 50px; color: white; }
+        .table-responsive { overflow-x: auto; }
+        th, td { white-space: nowrap; }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- هدر ساده -->
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 class="fw-bold" style="color: #ffffff;">ربات اسماعیل پور</h2>
-            <div>
-                <button class="btn btn-light rounded-pill px-4" id="adminLoginBtn"><i class="fas fa-lock me-2"></i>ورود</button>
+        <div class="text-center mb-4">
+            <h2 class="fw-bold text-white">ربات اسماعیل پور</h2>
+            <div class="mt-2">
+                <button class="btn btn-light rounded-pill px-4" id="adminLoginBtn">🔒 ورود مدیریت</button>
                 <span id="adminBadge" class="badge bg-success rounded-pill px-3 py-2 hidden">مدیر</span>
             </div>
         </div>
-
-        <!-- بخش عمومی -->
-        <div id="publicView"></div>
-
-        <!-- بخش ادمین (پنهان) -->
+        <div id="loadingMsg" class="loading">⏳ در حال بارگذاری...</div>
+        <div id="publicView" class="hidden"></div>
         <div id="adminView" class="hidden"></div>
+    </div>
 
-        <!-- مودال ویرایش -->
-        <div class="modal fade" id="editModal" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header border-0 pb-0">
-                        <h5 class="modal-title">ویرایش</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-                    <div class="modal-body">
-                        <input type="text" class="form-control rounded-pill" id="editInput" placeholder="مقدار جدید">
-                    </div>
-                    <div class="modal-footer border-0">
-                        <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">لغو</button>
-                        <button type="button" class="btn btn-primary rounded-pill" id="editSaveBtn">ذخیره</button>
-                    </div>
+    <div class="modal fade" id="passwordModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title">ورود مدیریت</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
-            </div>
-        </div>
-
-        <!-- مودال رمز -->
-        <div class="modal fade" id="passwordModal" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header border-0 pb-0">
-                        <h5 class="modal-title">ورود</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-                    <div class="modal-body">
-                        <input type="password" class="form-control rounded-pill" id="passwordInput" placeholder="رمز عبور">
-                    </div>
-                    <div class="modal-footer border-0">
-                        <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">انصراف</button>
-                        <button type="button" class="btn btn-primary rounded-pill" id="passwordSubmit">ورود</button>
-                    </div>
+                <div class="modal-body">
+                    <input type="password" class="form-control rounded-pill" id="passwordInput" placeholder="رمز عبور">
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">انصراف</button>
+                    <button type="button" class="btn btn-primary rounded-pill" id="passwordSubmit">ورود</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // ---------- داده‌های اصلی (با قابلیت ذخیره در localStorage) ----------
         const STEEL_DENSITY = 7850;
         const ADMIN_PASSWORD = "4107";
-
-        let PRODUCT_TYPES = {
-            galvanised: { name: 'ورق گالوانیزه', prices: {} },
-            oil: { name: 'ورق روغنی', prices: {} }
-        };
-
-        // مقداردهی اولیه
-        const INITIAL_GALV = {
-            '0.48': {'1000': 0, '1250': 0},
-            '0.58': {'1000': 103000, '1250': 103000},
-            '0.7' : {'1000': 94000, '1250': 94000},
-            '0.8' : {'1000': 92500, '1250': 92500},
-            '0.9' : {'1000': 92500, '1250': 92500},
-            '1'   : {'1000': 92500, '1250': 92500},
-            '1.25': {'1000': 92500, '1250': 92500},
-            '1.5' : {'1000': 92500, '1250': 92500},
-        };
-        const INITIAL_OIL = {
-            '0.7' : {'1000': 0, '1250': 0},
-            '0.8' : {'1000': 0, '1250': 0},
-            '0.9' : {'1000': 0, '1250': 0},
-            '1'   : {'1000': 96000, '1250': 96000},
-            '1.25': {'1000': 0, '1250': 0},
-            '1.5' : {'1000': 96000, '1250': 96000},
-            '2'   : {'1000': 0, '1250': 0},
-        };
-        Object.assign(PRODUCT_TYPES.galvanised.prices, INITIAL_GALV);
-        Object.assign(PRODUCT_TYPES.oil.prices, INITIAL_OIL);
-
-        const DECKING_PROPERTIES = {
-            '1': { name: 'گام 33 / ارتفاع 6 / عرض مفید 98', sheet_width_mm: 1250, effective_width_m: 0.98 },
-            '2': { name: 'گام 25 / ارتفاع 6 / عرض مفید 94', sheet_width_mm: 1250, effective_width_m: 0.94 },
-            '3': { name: 'گام 25 / ارتفاع 6 / عرض مفید 76', sheet_width_mm: 1000, effective_width_m: 0.76 },
-            '4': { name: 'گام 30 / ارتفاع 7.5 / عرض مفید 94', sheet_width_mm: 1250, effective_width_m: 0.94 }
-        };
-
-        let STUD_PRICES = { '۱۰': 39500, '۱۱.۵': 35500 };
-        let CERAMIC_PRICE = 1800;
-        let ENGINEERING_VALUES = {
-            FORMING_COST_PER_KG: 3000,
-            SERVICE_FEE_AMOUNT: 1000000,
-            SERVICE_FEE_THRESHOLD_KG: 1000
-        };
-
-        // بارگذاری از localStorage
-        function loadFromStorage() {
-            const saved = localStorage.getItem('PRODUCT_TYPES');
-            if (saved) {
-                try { PRODUCT_TYPES = JSON.parse(saved); } catch (e) {}
-            }
-            const s = localStorage.getItem('STUD_PRICES');
-            if (s) STUD_PRICES = JSON.parse(s);
-            const c = localStorage.getItem('CERAMIC_PRICE');
-            if (c) CERAMIC_PRICE = parseInt(c);
-            const e = localStorage.getItem('ENGINEERING_VALUES');
-            if (e) ENGINEERING_VALUES = JSON.parse(e);
-        }
-        loadFromStorage();
-
-        function saveToStorage() {
-            localStorage.setItem('PRODUCT_TYPES', JSON.stringify(PRODUCT_TYPES));
-            localStorage.setItem('STUD_PRICES', JSON.stringify(STUD_PRICES));
-            localStorage.setItem('CERAMIC_PRICE', CERAMIC_PRICE);
-            localStorage.setItem('ENGINEERING_VALUES', JSON.stringify(ENGINEERING_VALUES));
-        }
-
-        // وضعیت
+        
+        let PRODUCT_TYPES = {};
+        let STUD_PRICES = {};
+        let CERAMIC_PRICE = 0;
+        let ENGINEERING_VALUES = {};
         let isAdmin = false;
         let currentOrder = { type: null, thickness: null, width: null, isDecking: false, cart: [] };
-        let editCallback = null;
-
-        const publicView = document.getElementById('publicView');
-        const adminView = document.getElementById('adminView');
-        const adminBadge = document.getElementById('adminBadge');
-
-        // ---------- منوی اصلی (بدون آیکون) ----------
+        
+        const DECKING_PROPERTIES = {
+            '1': { name: 'گام 33 / ارتفاع 6 / عرض مفید 98', sheet_width_mm: 1250 },
+            '2': { name: 'گام 25 / ارتفاع 6 / عرض مفید 94', sheet_width_mm: 1250 },
+            '3': { name: 'گام 25 / ارتفاع 6 / عرض مفید 76', sheet_width_mm: 1000 },
+            '4': { name: 'گام 30 / ارتفاع 7.5 / عرض مفید 94', sheet_width_mm: 1250 }
+        };
+        
+        async function loadData() {
+            try {
+                const response = await fetch('prices.json?v=' + Date.now());
+                if (!response.ok) throw new Error('فایل پیدا نشد');
+                const data = await response.json();
+                PRODUCT_TYPES = { galvanised: data.galvanised, oil: data.oil };
+                STUD_PRICES = data.stud_prices;
+                CERAMIC_PRICE = data.ceramic_price;
+                ENGINEERING_VALUES = data.engineering_values;
+                document.getElementById('loadingMsg').classList.add('hidden');
+                document.getElementById('publicView').classList.remove('hidden');
+                renderMainMenu();
+            } catch (error) {
+                document.getElementById('loadingMsg').innerHTML = '❌ خطا در بارگذاری اطلاعات<br><small>مطمئن شوید فایل prices.json وجود دارد</small>';
+            }
+        }
+        
         function renderMainMenu() {
-            let html = `<div class="glass-card" id="mainMenu"><div class="row g-3">`;
+            let html = `<div class="glass-card"><div class="row g-3">`;
             for (let id in PRODUCT_TYPES) {
                 html += `
                     <div class="col-md-6">
-                        <button class="btn-modern menu-btn" data-action="price" data-type="${id}"> لیست قیمت ${PRODUCT_TYPES[id].name}</button>
+                        <button class="btn-modern menu-btn" data-action="price" data-type="${id}">💰 لیست قیمت ${PRODUCT_TYPES[id].name}</button>
                     </div>
                     <div class="col-md-6">
-                        <button class="btn-modern menu-btn" data-action="buy" data-type="${id}"> خرید ${PRODUCT_TYPES[id].name}</button>
+                        <button class="btn-modern menu-btn" data-action="buy" data-type="${id}">🛒 خرید ${PRODUCT_TYPES[id].name}</button>
                     </div>
                 `;
             }
             html += `
                 <div class="col-md-6">
-                    <button class="btn-modern menu-btn" data-action="priceStuds"> لیست گل میخ و سرامیک</button>
+                    <button class="btn-modern menu-btn" data-action="priceStuds">🔩 لیست گل میخ و سرامیک</button>
                 </div>
                 <div class="col-md-6">
-                    <button class="btn-modern menu-btn" data-action="buyDecking"> خرید عرشه فولادی</button>
+                    <button class="btn-modern menu-btn" data-action="buyDecking">🏗️ خرید عرشه فولادی</button>
                 </div>
                 <div class="col-12">
                     <button class="btn-outline-modern menu-btn" data-action="support">📞 پشتیبانی</button>
                 </div>
             `;
             html += `</div></div>`;
-            publicView.innerHTML = html;
+            document.getElementById('publicView').innerHTML = html;
         }
-
-        // ---------- لیست قیمت یک محصول ----------
+        
         function renderPriceTable(typeId) {
             const data = PRODUCT_TYPES[typeId];
-            if (!data) return;
             const thicknesses = Object.keys(data.prices).sort((a,b) => parseFloat(a)-parseFloat(b));
             const widths = new Set();
             Object.values(data.prices).forEach(p => Object.keys(p).forEach(w => widths.add(w)));
             const sortedWidths = Array.from(widths).sort((a,b) => parseInt(a)-parseInt(b));
-
-            let html = `<div class="glass-card"><h4 class="mb-4">💰 ${data.name}</h4>`;
-            html += '<div class="table-responsive"><table class="table price-table text-center"><thead><tr><th>ضخامت (mm)</th>';
+            let html = `<div class="glass-card"><h4 class="mb-4">💰 ${data.name}</h4><div class="table-responsive"><table class="table price-table"><thead><tr><th>ضخامت (mm)</th>`;
             sortedWidths.forEach(w => html += `<th>عرض ${w}</th>`);
-            html += '</tr></thead><tbody>';
+            html += '</thead><tbody>';
             thicknesses.forEach(th => {
-                html += `<tr><td>${th}</td>`;
+                html += `<tr><td><strong>${th}</strong></td>`;
                 sortedWidths.forEach(w => {
                     const price = data.prices[th]?.[w] || 0;
                     html += `<td>${price.toLocaleString()}</td>`;
                 });
                 html += `</tr>`;
             });
-            html += '</tbody></table></div>';
-            html += `<button class="back-btn back-to-main">بازگشت به منوی اصلی</button></div>`;
-            publicView.innerHTML = html;
+            html += '</tbody></table></div><button class="back-btn back-to-main">↩️ بازگشت</button></div>';
+            document.getElementById('publicView').innerHTML = html;
         }
-
+        
         function renderStudsPrice() {
-            let html = `<div class="glass-card"><h4 class="mb-4">🔩 گل میخ و سرامیک</h4>`;
-            html += '<table class="table price-table"><thead><tr><th>نوع</th><th>مشخصات</th><th>قیمت (تومان)</th></tr></thead><tbody>';
+            let html = `<div class="glass-card"><h4 class="mb-4">🔩 گل میخ و سرامیک</h4><table class="table price-table"><thead><tr><th>نوع</th><th>قیمت (تومان)</th></tr></thead><tbody>`;
             for (let size in STUD_PRICES) {
-                html += `<tr><td>گل میخ</td><td>${size} mm</td><td>${STUD_PRICES[size].toLocaleString()}</td></tr>`;
+                html += `<tr><td>گل میخ ${size} mm</td><td>${STUD_PRICES[size].toLocaleString()}</td></tr>`;
             }
-            html += `<tr><td>سرامیک</td><td>—</td><td>${CERAMIC_PRICE.toLocaleString()}</td></tr>`;
-            html += '</tbody></table>';
-            html += `<button class="back-btn back-to-main">بازگشت به منوی اصلی</button></div>`;
-            publicView.innerHTML = html;
+            html += `<tr><td>سرامیک</td><td>${CERAMIC_PRICE.toLocaleString()}</td></tr>`;
+            html += '</tbody></table><button class="back-btn back-to-main">↩️ بازگشت</button></div>';
+            document.getElementById('publicView').innerHTML = html;
         }
-
+        
         function renderSupport() {
-            publicView.innerHTML = `
-                <div class="glass-card text-center">
-                    <h4 class="mb-4">📞 پشتیبانی</h4>
-                    <p class="mt-3 fs-5">۰۵۱۳۶۹۰۲۹۰۰<br>۰۵۱۳۶۹۰۲۹۰۱<br>۰۵۱۳۶۹۰۳۰۹۰</p>
-                    <p class="text-muted">با ما در ارتباط باشید 🙏</p>
-                    <button class="back-btn back-to-main">بازگشت به منوی اصلی</button>
-                </div>
-            `;
+            document.getElementById('publicView').innerHTML = `<div class="glass-card text-center"><h4 class="mb-4">📞 پشتیبانی</h4><p class="mt-3 fs-5">۰۵۱۳۶۹۰۲۹۰۰<br>۰۵۱۳۶۹۰۲۹۰۱<br>۰۵۱۳۶۹۰۳۰۹۰</p><button class="back-btn back-to-main">↩️ بازگشت</button></div>`;
         }
-
-        // ---------- خرید ----------
+        
         function renderBuyOptions(typeId) {
             const data = PRODUCT_TYPES[typeId];
             currentOrder = { type: typeId, thickness: null, width: null, isDecking: false, cart: [] };
-            let html = `<div class="glass-card"><h4 class="mb-3">خرید ${data.name}</h4>`;
-            html += '<h5>انتخاب ضخامت:</h5><div class="vertical-options">';
+            let html = `<div class="glass-card"><h4 class="mb-3">🛒 خرید ${data.name}</h4><h5>انتخاب ضخامت:</h5><div class="vertical-options">`;
             const thicknesses = Object.keys(data.prices).sort((a,b) => parseFloat(a)-parseFloat(b));
-            thicknesses.forEach(th => {
-                html += `<button class="btn btn-outline-modern buy-thickness" data-th="${th}">${th} mm</button>`;
-            });
-            html += '</div><div id="buyWidthContainer" class="mt-2"></div><div id="buyFormContainer"></div>';
-            html += `<button class="back-btn back-to-main mt-4">بازگشت به منوی اصلی</button></div>`;
-            publicView.innerHTML = html;
+            thicknesses.forEach(th => { html += `<button class="btn btn-outline-modern buy-thickness" data-th="${th}">${th} mm</button>`; });
+            html += '</div><div id="buyWidthContainer"></div><div id="buyFormContainer"></div><button class="back-btn back-to-main mt-4">↩️ بازگشت</button></div>';
+            document.getElementById('publicView').innerHTML = html;
         }
-
+        
         function renderBuyWidths(typeId, thickness) {
             const data = PRODUCT_TYPES[typeId];
             const widths = Object.keys(data.prices[thickness] || {});
             let html = '<h5 class="mt-3">انتخاب عرض:</h5><div class="vertical-options">';
-            widths.sort((a,b) => parseInt(a)-parseInt(b)).forEach(w => {
-                html += `<button class="btn btn-outline-modern buy-width" data-width="${w}">${w} mm</button>`;
-            });
+            widths.sort((a,b) => parseInt(a)-parseInt(b)).forEach(w => { html += `<button class="btn btn-outline-modern buy-width" data-width="${w}">${w} mm</button>`; });
             html += '</div>';
             document.getElementById('buyWidthContainer').innerHTML = html;
+            renderBuyForm();
         }
-
+        
         function renderBuyForm() {
-            let html = `
-                <div class="row g-3 mt-3">
-                    <div class="col-md-6">
-                        <label class="form-label">طول (متر)</label>
-                        <input type="number" id="buyLength" class="form-control rounded-pill" value="5" step="0.1" min="0.1">
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label">تعداد</label>
-                        <input type="number" id="buyCount" class="form-control rounded-pill" value="1" min="1">
-                    </div>
-                    <div class="col-12">
-                        <button class="btn-modern w-100" id="buyAddToCart">➕ افزودن به سبد</button>
-                    </div>ب
-                </div>
-                <div id="cartDisplay" class="mt-4"></div>
-                <button class="btn-modern mt-3" id="buyFinish" style="display:none;">💰 اتمام خرید و فاکتور</button>
-            `;
+            let html = `<div class="row g-3 mt-3"><div class="col-md-6"><label class="form-label">طول (متر)</label><input type="number" id="buyLength" class="form-control rounded-pill" value="5" step="0.1"></div><div class="col-md-6"><label class="form-label">تعداد</label><input type="number" id="buyCount" class="form-control rounded-pill" value="1" min="1"></div><div class="col-12"><button class="btn-modern w-100" id="buyAddToCart">➕ افزودن به سبد</button></div></div><div id="cartDisplay" class="mt-4"></div><button class="btn-modern mt-3" id="buyFinish" style="display:none;">💰 اتمام خرید</button>`;
             document.getElementById('buyFormContainer').innerHTML = html;
             document.getElementById('buyAddToCart').addEventListener('click', addToCart);
         }
-
+        
         function addToCart() {
             const length = parseFloat(document.getElementById('buyLength').value);
             const count = parseInt(document.getElementById('buyCount').value);
             if (isNaN(length) || length<=0 || isNaN(count) || count<=0) return alert('مقادیر نامعتبر');
-            const result = calculateItem(
-                currentOrder.type,
-                currentOrder.thickness,
-                currentOrder.width,
-                length,
-                count,
-                currentOrder.isDecking
-            );
+            const result = calculateItem(currentOrder.type, currentOrder.thickness, currentOrder.width, length, count, currentOrder.isDecking);
             if (result.error) { alert(result.error); return; }
             currentOrder.cart.push(result);
             updateCartDisplay();
         }
-
+        
         function updateCartDisplay() {
             const cart = currentOrder.cart;
-            if (cart.length === 0) {
-                document.getElementById('cartDisplay').innerHTML = '';
-                document.getElementById('buyFinish').style.display = 'none';
-                return;
-            }
-            let html = '<h6>سبد خرید:</h6>';
-            cart.forEach((item, idx) => {
-                html += `<div class="cart-item">آیتم ${idx+1}: ${item.model_name} | ${item.thickness}mm × عرض ${item.width}mm | تعداد ${item.count} | وزن ${item.total_weight_kg.toFixed(2)} کیلوگرم | قیمت ${item.total_deck_cost_toman.toLocaleString()} تومان</div>`;
-            });
+            if (cart.length === 0) { document.getElementById('cartDisplay').innerHTML = ''; document.getElementById('buyFinish').style.display = 'none'; return; }
+            let html = '<h6>🛍️ سبد خرید:</h6>';
+            cart.forEach((item, idx) => { html += `<div class="cart-item">آیتم ${idx+1}: ${item.model_name} | ضخامت ${item.thickness}mm | تعداد ${item.count} | وزن ${item.total_weight_kg.toFixed(2)} کیلوگرم | قیمت ${item.total_cost.toLocaleString()} تومان</div>`; });
             document.getElementById('cartDisplay').innerHTML = html;
             document.getElementById('buyFinish').style.display = 'block';
             document.getElementById('buyFinish').onclick = showInvoice;
         }
-
+        
         function showInvoice() {
             const cart = currentOrder.cart;
             if (cart.length === 0) return alert('سبد خالی است');
             let totalWeight = 0, totalRaw = 0;
-            cart.forEach(it => { totalWeight += it.total_weight_kg; totalRaw += it.total_deck_cost_toman; });
+            cart.forEach(it => { totalWeight += it.total_weight_kg; totalRaw += it.total_cost; });
             let final = totalRaw;
             let feeMsg = '';
-            if (totalWeight < ENGINEERING_VALUES.SERVICE_FEE_THRESHOLD_KG) {
-                final += ENGINEERING_VALUES.SERVICE_FEE_AMOUNT;
-                feeMsg = `<span class="text-warning">+ اضافه‌بها ${ENGINEERING_VALUES.SERVICE_FEE_AMOUNT.toLocaleString()} تومان</span>`;
+            if (totalWeight < ENGINEERING_VALUES.service_fee_threshold_kg) {
+                final += ENGINEERING_VALUES.service_fee_amount;
+                feeMsg = `<span class="text-warning">+ اضافه‌بها ${ENGINEERING_VALUES.service_fee_amount.toLocaleString()} تومان</span>`;
             }
             let html = '<div class="glass-card"><h4 class="mb-4">🧾 فاکتور نهایی</h4>';
-            cart.forEach((it, idx) => {
-                html += `<div class="cart-item">آیتم ${idx+1}: ${it.model_name} | ${it.thickness}mm × عرض ${it.width}mm | تعداد ${it.count} عدد به طول ${it.length}m<br>وزن: ${it.total_weight_kg.toFixed(2)} کیلوگرم | قیمت: ${it.total_deck_cost_toman.toLocaleString()} تومان</div>`;
-            });
-            html += `<p class="mt-3 fs-5"><strong>وزن کل:</strong> ${totalWeight.toFixed(2)} کیلوگرم<br><strong>جمع خام:</strong> ${totalRaw.toLocaleString()} تومان<br>${feeMsg}<br><strong class="text-success">مبلغ نهایی: ${final.toLocaleString()} تومان</strong></p>`;
-            html += `<button class="back-btn back-to-main">بازگشت به منوی اصلی</button></div>`;
-            publicView.innerHTML = html;
+            cart.forEach((it, idx) => { html += `<div class="cart-item">آیتم ${idx+1}: ${it.model_name} | ضخامت ${it.thickness}mm | تعداد ${it.count} | وزن ${it.total_weight_kg.toFixed(2)} کیلوگرم | قیمت ${it.total_cost.toLocaleString()} تومان</div>`; });
+            html += `<p class="mt-3"><strong>وزن کل:</strong> ${totalWeight.toFixed(2)} کیلوگرم<br><strong>جمع خام:</strong> ${totalRaw.toLocaleString()} تومان<br>${feeMsg}<br><strong class="text-success">💰 مبلغ نهایی: ${final.toLocaleString()} تومان</strong></p>`;
+            html += `<button class="back-btn back-to-main">↩️ بازگشت</button></div>`;
+            document.getElementById('publicView').innerHTML = html;
         }
-
+        
         function calculateItem(typeId, thickness, width, length, count, isDecking) {
             try {
                 const thicknessStr = thickness.toString();
@@ -464,372 +264,45 @@
                 let priceDict, modelName = '';
                 if (isDecking) {
                     priceDict = PRODUCT_TYPES.galvanised.prices;
-                    modelName = DECKING_PROPERTIES[Object.keys(DECKING_PROPERTIES).find(k => DECKING_PROPERTIES[k].sheet_width_mm == width)]?.name || 'عرشه';
+                    modelName = 'عرشه فولادی';
                 } else {
                     priceDict = PRODUCT_TYPES[typeId].prices;
                     modelName = PRODUCT_TYPES[typeId].name;
                 }
                 const pricePerKg = priceDict[thicknessStr]?.[widthStr];
-                if (!pricePerKg) return { error: 'قیمت ورق یافت نشد' };
+                if (!pricePerKg || pricePerKg === 0) return { error: 'قیمت ورق یافت نشد یا صفر است' };
                 const sheetWidthM = parseInt(widthStr)/1000;
                 const rawSheetArea = count * length * sheetWidthM;
                 const thicknessM = parseFloat(thicknessStr)/1000;
                 const totalWeight = rawSheetArea * thicknessM * STEEL_DENSITY;
                 const materialCost = totalWeight * pricePerKg;
-                const formingCost = totalWeight * ENGINEERING_VALUES.FORMING_COST_PER_KG;
-                const totalDeckCost = materialCost + formingCost;
-                let finalCost = totalDeckCost, fee = 0;
-                if (totalWeight < ENGINEERING_VALUES.SERVICE_FEE_THRESHOLD_KG) {
-                    fee = ENGINEERING_VALUES.SERVICE_FEE_AMOUNT;
-                    finalCost += fee;
-                }
-                return {
-                    model_name: modelName,
-                    thickness, width, length, count,
-                    total_weight_kg: totalWeight,
-                    total_deck_cost_toman: totalDeckCost,
-                    final_cost: finalCost,
-                    service_fee_applied: fee,
-                    price_per_kg: pricePerKg
-                };
+                const formingCost = totalWeight * ENGINEERING_VALUES.forming_cost_per_kg;
+                const totalCost = materialCost + formingCost;
+                return { model_name: modelName, thickness, width, length, count, total_weight_kg: totalWeight, total_cost: totalCost };
             } catch (e) { return { error: e.message }; }
         }
-
-        // ---------- خرید عرشه ----------
+        
         function renderDeckingModels() {
             currentOrder = { type: 'decking', thickness: null, width: null, isDecking: true, cart: [] };
-            let html = `<div class="glass-card"><h4 class="mb-3">خرید عرشه فولادی</h4><h5>انتخاب مدل:</h5><div class="vertical-options">`;
-            for (let key in DECKING_PROPERTIES) {
-                html += `<button class="btn btn-outline-modern decking-model" data-model="${key}">${DECKING_PROPERTIES[key].name}</button>`;
-            }
-            html += '</div><div id="deckingThicknessContainer" class="mt-3"></div><div id="buyFormContainer"></div>';
-            html += `<button class="back-btn back-to-main mt-4">بازگشت به منوی اصلی</button></div>`;
-            publicView.innerHTML = html;
+            let html = `<div class="glass-card"><h4 class="mb-3">🏗️ خرید عرشه فولادی</h4><h5>انتخاب مدل:</h5><div class="vertical-options">`;
+            for (let key in DECKING_PROPERTIES) { html += `<button class="btn btn-outline-modern decking-model" data-model="${key}">${DECKING_PROPERTIES[key].name}</button>`; }
+            html += '</div><div id="deckingThicknessContainer"></div><div id="buyFormContainer"></div><button class="back-btn back-to-main mt-4">↩️ بازگشت</button></div>';
+            document.getElementById('publicView').innerHTML = html;
         }
-
+        
         function renderDeckingThickness(model) {
             currentOrder.width = DECKING_PROPERTIES[model].sheet_width_mm.toString();
-            let html = '<h5 class="mt-3">انتخاب ضخامت ورق (گالوانیزه):</h5><div class="vertical-options">';
-            const galvanisedPrices = PRODUCT_TYPES.galvanised.prices;
-            const thicknesses = Object.keys(galvanisedPrices).filter(t => parseFloat(t) >= 0.7 && !['1.25','1.5'].includes(t)).sort((a,b)=>parseFloat(a)-parseFloat(b));
-            thicknesses.forEach(th => {
-                html += `<button class="btn btn-outline-modern decking-thickness" data-th="${th}">${th} mm</button>`;
-            });
+            let html = '<h5 class="mt-3">انتخاب ضخامت (گالوانیزه):</h5><div class="vertical-options">';
+            const thicknesses = Object.keys(PRODUCT_TYPES.galvanised.prices).filter(t => parseFloat(t) >= 0.7).sort((a,b)=>parseFloat(a)-parseFloat(b));
+            thicknesses.forEach(th => { html += `<button class="btn btn-outline-modern decking-thickness" data-th="${th}">${th} mm</button>`; });
             html += '</div>';
             document.getElementById('deckingThicknessContainer').innerHTML = html;
         }
-
-        // ---------- مدیریت ادمین (کامل) ----------
-        function renderAdminPanel() {
-            let html = `<div class="glass-card"><h3 class="mb-4">🔧 پنل مدیریت</h3>`;
-            html += `<div class="row g-2"><div class="col-md-4"><button class="btn-modern w-100" id="adminTypes">📋 انواع ورق</button></div>`;
-            html += `<div class="col-md-4"><button class="btn-modern w-100" id="adminStuds">🔩 گل میخ و سرامیک</button></div>`;
-            html += `<div class="col-md-4"><button class="btn-modern w-100" id="adminCosts">⚙️ هزینه‌ها</button></div>`;
-            html += `<div class="col-12 mt-3"><button class="btn-outline-modern w-100" id="adminLogout">🚪 خروج</button></div></div>`;
-            html += `<div id="adminContent" class="mt-4 admin-section"></div></div>`;
-            adminView.innerHTML = html;
-            adminView.classList.remove('hidden');
-            publicView.classList.add('hidden');
-            adminBadge.classList.remove('hidden');
-            document.getElementById('adminTypes').addEventListener('click', renderAdminTypes);
-            document.getElementById('adminStuds').addEventListener('click', renderAdminStuds);
-            document.getElementById('adminCosts').addEventListener('click', renderAdminCosts);
-            document.getElementById('adminLogout').addEventListener('click', logoutAdmin);
-        }
-
-        function logoutAdmin() {
-            isAdmin = false;
-            adminView.classList.add('hidden');
-            publicView.classList.remove('hidden');
-            adminBadge.classList.add('hidden');
-            renderMainMenu();
-        }
-
-        function renderAdminTypes() {
-            let html = '<h5 class="mb-3">انواع ورق</h5><div class="row">';
-            for (let id in PRODUCT_TYPES) {
-                html += `<div class="col-md-6 mb-3">
-                    <div class="d-flex justify-content-between align-items-center p-3 bg-white rounded-4 shadow-sm">
-                        <span><strong>${PRODUCT_TYPES[id].name}</strong> <small class="text-muted">(${id})</small></span>
-                        <span>
-                            <button class="btn btn-sm btn-outline-primary edit-type-name" data-id="${id}"><i class="fas fa-edit"></i></button>
-                            <button class="btn btn-sm btn-outline-warning edit-type-prices" data-id="${id}"><i class="fas fa-table"></i></button>
-                            <button class="btn btn-sm btn-outline-danger delete-type" data-id="${id}"><i class="fas fa-trash"></i></button>
-                        </span>
-                    </div>
-                </div>`;
-            }
-            html += '</div><button class="btn-modern mt-2" id="addTypeBtn">➕ افزودن نوع جدید</button>';
-            document.getElementById('adminContent').innerHTML = html;
-
-            document.querySelectorAll('.edit-type-name').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    const id = e.target.closest('button').dataset.id;
-                    openEditModal('نام جدید', PRODUCT_TYPES[id].name, (newName) => {
-                        PRODUCT_TYPES[id].name = newName;
-                        saveToStorage();
-                        renderAdminTypes();
-                    });
-                });
-            });
-            document.querySelectorAll('.edit-type-prices').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    const id = e.target.closest('button').dataset.id;
-                    renderAdminPriceTable(id);
-                });
-            });
-            document.querySelectorAll('.delete-type').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    const id = e.target.closest('button').dataset.id;
-                    if (confirm(`آیا از حذف ${PRODUCT_TYPES[id].name} اطمینان دارید؟`)) {
-                        delete PRODUCT_TYPES[id];
-                        saveToStorage();
-                        renderAdminTypes();
-                    }
-                });
-            });
-            document.getElementById('addTypeBtn').addEventListener('click', () => {
-                openEditModal('نام نوع جدید', '', (newName) => {
-                    const id = newName.replace(/\s+/g, '_').toLowerCase();
-                    if (PRODUCT_TYPES[id]) {
-                        alert('این شناسه قبلاً وجود دارد');
-                        return;
-                    }
-                    PRODUCT_TYPES[id] = { name: newName, prices: {} };
-                    saveToStorage();
-                    renderAdminTypes();
-                });
-            });
-        }
-
-        function renderAdminPriceTable(pid) {
-            const data = PRODUCT_TYPES[pid];
-            const thicknesses = Object.keys(data.prices).sort((a,b)=>parseFloat(a)-parseFloat(b));
-            const widths = new Set();
-            Object.values(data.prices).forEach(p => Object.keys(p).forEach(w => widths.add(w)));
-            const sortedWidths = Array.from(widths).sort((a,b)=>parseInt(a)-parseInt(b));
-
-            let html = `<h5 class="mb-3">ویرایش قیمت‌های ${data.name}</h5>`;
-            html += '<div class="table-responsive"><table class="table table-bordered bg-white"><thead><tr><th>ضخامت</th>';
-            sortedWidths.forEach(w => html += `<th>عرض ${w} 
-                <i class="fas fa-edit edit-icon" data-action="editWidth" data-width="${w}"></i>
-                <i class="fas fa-trash edit-icon text-danger" data-action="delWidth" data-width="${w}"></i></th>`);
-            html += '</tr></thead><tbody>';
-            thicknesses.forEach(th => {
-                html += `<tr><td>${th} mm 
-                    <i class="fas fa-edit edit-icon" data-action="editThickness" data-th="${th}"></i>
-                    <i class="fas fa-trash edit-icon text-danger" data-action="delThickness" data-th="${th}"></i></td>`;
-                sortedWidths.forEach(w => {
-                    const price = data.prices[th]?.[w] || 0;
-                    html += `<td><span class="editable-price" data-th="${th}" data-width="${w}">${price.toLocaleString()}</span> 
-                        <i class="fas fa-edit edit-icon" data-action="editPrice" data-th="${th}" data-width="${w}"></i></td>`;
-                });
-                html += `</tr>`;
-            });
-            html += '</tbody></table></div>';
-            html += `<button class="btn-modern me-2" id="addThicknessBtn">➕ ضخامت جدید</button> `;
-            html += `<button class="btn-modern me-2" id="addWidthBtn">➕ عرض جدید</button> `;
-            html += `<button class="btn-outline-modern mt-3" onclick="renderAdminTypes()">بازگشت</button>`;
-            document.getElementById('adminContent').innerHTML = html;
-
-            // ویرایش قیمت
-            document.querySelectorAll('.editable-price, .edit-icon[data-action="editPrice"]').forEach(el => {
-                el.addEventListener('click', (e) => {
-                    const target = e.target.closest('[data-th]');
-                    const th = target.dataset.th;
-                    const width = target.dataset.width;
-                    const current = data.prices[th]?.[width] || 0;
-                    openEditModal('قیمت جدید (تومان/کیلوگرم)', current, (val) => {
-                        if (!data.prices[th]) data.prices[th] = {};
-                        data.prices[th][width] = parseInt(val);
-                        saveToStorage();
-                        renderAdminPriceTable(pid);
-                    });
-                });
-            });
-            // ویرایش عرض
-            document.querySelectorAll('.edit-icon[data-action="editWidth"]').forEach(el => {
-                el.addEventListener('click', (e) => {
-                    const width = e.target.dataset.width;
-                    openEditModal('عرض جدید (mm)', width, (newWidth) => {
-                        for (let th in data.prices) {
-                            if (data.prices[th][width] !== undefined) {
-                                data.prices[th][newWidth] = data.prices[th][width];
-                                delete data.prices[th][width];
-                            }
-                        }
-                        saveToStorage();
-                        renderAdminPriceTable(pid);
-                    });
-                });
-            });
-            // حذف عرض
-            document.querySelectorAll('.edit-icon[data-action="delWidth"]').forEach(el => {
-                el.addEventListener('click', (e) => {
-                    const width = e.target.dataset.width;
-                    if (confirm('حذف شود؟')) {
-                        for (let th in data.prices) delete data.prices[th][width];
-                        saveToStorage();
-                        renderAdminPriceTable(pid);
-                    }
-                });
-            });
-            // ویرایش ضخامت
-            document.querySelectorAll('.edit-icon[data-action="editThickness"]').forEach(el => {
-                el.addEventListener('click', (e) => {
-                    const oldTh = e.target.dataset.th;
-                    openEditModal('ضخامت جدید (mm)', oldTh, (newTh) => {
-                        if (data.prices[newTh]) {
-                            alert('این ضخامت قبلاً وجود دارد');
-                            return;
-                        }
-                        data.prices[newTh] = data.prices[oldTh];
-                        delete data.prices[oldTh];
-                        saveToStorage();
-                        renderAdminPriceTable(pid);
-                    });
-                });
-            });
-            // حذف ضخامت
-            document.querySelectorAll('.edit-icon[data-action="delThickness"]').forEach(el => {
-                el.addEventListener('click', (e) => {
-                    const th = e.target.dataset.th;
-                    if (confirm('حذف شود؟')) {
-                        delete data.prices[th];
-                        saveToStorage();
-                        renderAdminPriceTable(pid);
-                    }
-                });
-            });
-            document.getElementById('addThicknessBtn').addEventListener('click', () => {
-                openEditModal('ضخامت جدید (mm)', '', (newTh) => {
-                    if (data.prices[newTh]) { alert('موجود است'); return; }
-                    data.prices[newTh] = {};
-                    sortedWidths.forEach(w => data.prices[newTh][w] = 0);
-                    saveToStorage();
-                    renderAdminPriceTable(pid);
-                });
-            });
-            document.getElementById('addWidthBtn').addEventListener('click', () => {
-                openEditModal('عرض جدید (mm)', '', (newWidth) => {
-                    for (let th in data.prices) {
-                        data.prices[th][newWidth] = 0;
-                    }
-                    saveToStorage();
-                    renderAdminPriceTable(pid);
-                });
-            });
-        }
-
-        function renderAdminStuds() {
-            let html = '<h5 class="mb-3">گل میخ و سرامیک</h5>';
-            for (let size in STUD_PRICES) {
-                html += `<div class="d-flex justify-content-between align-items-center p-2 bg-white rounded-3 mb-2">
-                    <span>سایز ${size} mm: ${STUD_PRICES[size].toLocaleString()} تومان</span>
-                    <span>
-                        <i class="fas fa-edit edit-icon" data-action="editStud" data-size="${size}"></i>
-                        <i class="fas fa-trash edit-icon text-danger" data-action="delStud" data-size="${size}"></i>
-                    </span>
-                </div>`;
-            }
-            html += `<div class="d-flex justify-content-between align-items-center p-2 bg-white rounded-3 mb-2">
-                <span>سرامیک: ${CERAMIC_PRICE.toLocaleString()} تومان</span>
-                <i class="fas fa-edit edit-icon" data-action="editCeramic"></i>
-            </div>`;
-            html += '<button class="btn-modern mt-3" id="addStudBtn">➕ گل میخ جدید</button>';
-            html += '<button class="btn-outline-modern mt-3 me-2" onclick="renderAdminTypes()">بازگشت</button>';
-            document.getElementById('adminContent').innerHTML = html;
-
-            document.querySelectorAll('[data-action="editStud"]').forEach(el => {
-                el.addEventListener('click', (e) => {
-                    const size = e.target.dataset.size;
-                    openEditModal('قیمت جدید', STUD_PRICES[size], (val) => {
-                        STUD_PRICES[size] = parseInt(val);
-                        saveToStorage();
-                        renderAdminStuds();
-                    });
-                });
-            });
-            document.querySelectorAll('[data-action="delStud"]').forEach(el => {
-                el.addEventListener('click', (e) => {
-                    const size = e.target.dataset.size;
-                    if (confirm('حذف شود؟')) {
-                        delete STUD_PRICES[size];
-                        saveToStorage();
-                        renderAdminStuds();
-                    }
-                });
-            });
-            document.querySelector('[data-action="editCeramic"]').addEventListener('click', () => {
-                openEditModal('قیمت سرامیک', CERAMIC_PRICE, (val) => {
-                    CERAMIC_PRICE = parseInt(val);
-                    saveToStorage();
-                    renderAdminStuds();
-                });
-            });
-            document.getElementById('addStudBtn').addEventListener('click', () => {
-                openEditModal('سایز جدید (mm)', '', (size) => {
-                    if (STUD_PRICES[size]) { alert('موجود است'); return; }
-                    openEditModal('قیمت برای سایز ' + size, '', (price) => {
-                        STUD_PRICES[size] = parseInt(price);
-                        saveToStorage();
-                        renderAdminStuds();
-                    });
-                });
-            });
-        }
-
-        function renderAdminCosts() {
-            let html = '<h5 class="mb-3">هزینه‌های مهندسی</h5>';
-            html += `<div class="d-flex justify-content-between align-items-center p-3 bg-white rounded-3 mb-2">
-                <span>هزینه فرمینگ (تومان/کیلوگرم):</span>
-                <span><strong>${ENGINEERING_VALUES.FORMING_COST_PER_KG.toLocaleString()}</strong> <i class="fas fa-edit edit-icon" data-key="FORMING_COST_PER_KG"></i></span>
-            </div>`;
-            html += `<div class="d-flex justify-content-between align-items-center p-3 bg-white rounded-3 mb-2">
-                <span>مبلغ کارمزد:</span>
-                <span><strong>${ENGINEERING_VALUES.SERVICE_FEE_AMOUNT.toLocaleString()}</strong> <i class="fas fa-edit edit-icon" data-key="SERVICE_FEE_AMOUNT"></i></span>
-            </div>`;
-            html += `<div class="d-flex justify-content-between align-items-center p-3 bg-white rounded-3 mb-2">
-                <span>آستانه وزن (کیلوگرم):</span>
-                <span><strong>${ENGINEERING_VALUES.SERVICE_FEE_THRESHOLD_KG.toLocaleString()}</strong> <i class="fas fa-edit edit-icon" data-key="SERVICE_FEE_THRESHOLD_KG"></i></span>
-            </div>`;
-            html += '<button class="btn-outline-modern mt-3" onclick="renderAdminTypes()">بازگشت</button>';
-            document.getElementById('adminContent').innerHTML = html;
-
-            document.querySelectorAll('.edit-icon').forEach(el => {
-                el.addEventListener('click', (e) => {
-                    const key = e.target.dataset.key;
-                    openEditModal('مقدار جدید', ENGINEERING_VALUES[key], (val) => {
-                        ENGINEERING_VALUES[key] = parseInt(val);
-                        saveToStorage();
-                        renderAdminCosts();
-                    });
-                });
-            });
-        }
-
-        // مودال ویرایش
-        function openEditModal(placeholder, currentValue, callback) {
-            const modal = new bootstrap.Modal(document.getElementById('editModal'));
-            document.getElementById('editInput').value = currentValue;
-            document.getElementById('editInput').placeholder = placeholder;
-            document.getElementById('editSaveBtn').onclick = () => {
-                const newVal = document.getElementById('editInput').value;
-                if (newVal) callback(newVal);
-                modal.hide();
-            };
-            modal.show();
-        }
-
-        // ---------- event delegation برای منو و دکمه‌ها ----------
+        
         document.addEventListener('click', (e) => {
-            if (e.target.classList.contains('back-to-main')) {
-                renderMainMenu();
-                return;
-            }
+            if (e.target.classList.contains('back-to-main')) { renderMainMenu(); return; }
             if (e.target.classList.contains('menu-btn')) {
-                const action = e.target.dataset.action;
-                const type = e.target.dataset.type;
+                const action = e.target.dataset.action, type = e.target.dataset.type;
                 if (action === 'price') renderPriceTable(type);
                 else if (action === 'buy') renderBuyOptions(type);
                 else if (action === 'priceStuds') renderStudsPrice();
@@ -837,44 +310,21 @@
                 else if (action === 'support') renderSupport();
                 return;
             }
-            if (e.target.classList.contains('buy-thickness')) {
-                currentOrder.thickness = e.target.dataset.th;
-                renderBuyWidths(currentOrder.type, currentOrder.thickness);
-                renderBuyForm();
-                return;
-            }
-            if (e.target.classList.contains('buy-width')) {
-                currentOrder.width = e.target.dataset.width;
-                return;
-            }
-            if (e.target.classList.contains('decking-model')) {
-                renderDeckingThickness(e.target.dataset.model);
-                return;
-            }
-            if (e.target.classList.contains('decking-thickness')) {
-                currentOrder.thickness = e.target.dataset.th;
-                renderBuyForm();
-                return;
-            }
+            if (e.target.classList.contains('buy-thickness')) { currentOrder.thickness = e.target.dataset.th; renderBuyWidths(currentOrder.type, currentOrder.thickness); return; }
+            if (e.target.classList.contains('buy-width')) { currentOrder.width = e.target.dataset.width; return; }
+            if (e.target.classList.contains('decking-model')) { renderDeckingThickness(e.target.dataset.model); return; }
+            if (e.target.classList.contains('decking-thickness')) { currentOrder.thickness = e.target.dataset.th; renderBuyForm(); return; }
         });
-
-        // شروع
-        renderMainMenu();
-
-        // ورود ادمین
-        document.getElementById('adminLoginBtn').addEventListener('click', () => {
-            new bootstrap.Modal(document.getElementById('passwordModal')).show();
-        });
+        
+        document.getElementById('adminLoginBtn').addEventListener('click', () => { new bootstrap.Modal(document.getElementById('passwordModal')).show(); });
         document.getElementById('passwordSubmit').addEventListener('click', () => {
-            const pwd = document.getElementById('passwordInput').value;
-            if (pwd === ADMIN_PASSWORD) {
+            if (document.getElementById('passwordInput').value === ADMIN_PASSWORD) {
                 bootstrap.Modal.getInstance(document.getElementById('passwordModal')).hide();
-                isAdmin = true;
-                renderAdminPanel();
-            } else {
-                alert('رمز اشتباه است');
-            }
+                alert('⚠️ تغییر قیمت‌ها: فایل prices.json را در GitHub ویرایش کنید');
+            } else { alert('رمز اشتباه است'); }
         });
+        
+        loadData();
     </script>
 </body>
 </html>
